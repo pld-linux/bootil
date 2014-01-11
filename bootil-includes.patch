@@ -1,0 +1,20 @@
+--- bootil/src/3rdParty/happyhttp/happyhttp.cpp.orig	2014-01-11 17:58:10.000000000 +0100
++++ bootil/src/3rdParty/happyhttp/happyhttp.cpp	2014-01-11 18:36:14.462546050 +0100
+@@ -34,6 +34,7 @@
+ 	#include <arpa/inet.h>
+ 	#include <netdb.h>	// for gethostbyname()
+ 	#include <errno.h>
++	#include <unistd.h>
+ #endif
+ 
+ #ifdef _WIN32
+--- bootil/src/Bootil/Network/Socket.cpp.orig	2014-01-11 17:58:10.000000000 +0100
++++ bootil/src/Bootil/Network/Socket.cpp	2014-01-11 18:50:46.302509462 +0100
+@@ -13,6 +13,7 @@
+ 	#include <sys/ioctl.h>
+ 	#include <arpa/inet.h>
+ 	#include <netdb.h>
++	#include <unistd.h>
+ 	#define ioctlsocket ioctl
+ 	#define closesocket close
+ 	#define WSAGetLastError() errno
