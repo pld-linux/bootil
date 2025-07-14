@@ -41,7 +41,7 @@ Pliki nagłówkowe biblioteki Bootil.
 
 %prep
 %setup -q -n bootil
-%patch0 -p1
+%patch -P0 -p1
 
 %{__sed} -i -e 's/bootil_static/bootil/;s/StaticLib/SharedLib/' projects/bootil.lua
 
