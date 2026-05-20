@@ -2,7 +2,7 @@ Summary:	Garry Newman's utility library
 Summary(pl.UTF-8):	Biblioteka narzędziowa Garry'ego Newmana
 Name:		bootil
 Version:	0
-%define	snap	20140109
+%define	snap	20260114
 Release:	0.%{snap}.1
 # URL says: "My personal utility library, feel free to steal :)"
 License:	unknown (free)
@@ -10,8 +10,7 @@ Group:		Libraries
 # git clone https://github.com/garrynewman/bootil
 # tar cJ --exclude=.git -f bootil.tar.xz
 Source0:	%{name}.tar.xz
-# Source0-md5:	fcbf821466349cc3d91f362fea8bd9de
-Patch0:		%{name}-includes.patch
+# Source0-md5:	f0c2f911d67ab71f30f0aab41b2c0a9e
 URL:		https://github.com/garrynewman/bootil
 BuildRequires:	libstdc++-devel
 BuildRequires:	premake >= 4
@@ -41,7 +40,6 @@ Pliki nagłówkowe biblioteki Bootil.
 
 %prep
 %setup -q -n bootil
-%patch -P0 -p1
 
 %{__sed} -i -e 's/bootil_static/bootil/;s/StaticLib/SharedLib/' projects/bootil.lua
 
@@ -53,6 +51,7 @@ LDFLAGS="%{rpmldflags}" \
 	CC="%{__cc}" \
 	CXX="%{__cxx}" \
 	CFLAGS='%{rpmcflags} %{rpmcppflags} $(CPPFLAGS) $(ARCH) -ffast-math -fPIC' \
+	CXXFLAGS='%{rpmcxxflags} %{rpmcppflags} $(CPPFLAGS) $(ARCH) -ffast-math -fPIC' \
 	verbose=1
 
 %install
